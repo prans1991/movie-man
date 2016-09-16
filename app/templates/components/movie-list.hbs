@@ -1,0 +1,5 @@
+{{#each genres as |genre|}}
+   <button {{action "selectMovieGenre" genre}}class="genre">{{genre}}</button>
+{{/each}}
+
+{{movies-by-genre movies=filteredMoviesByGenre}}

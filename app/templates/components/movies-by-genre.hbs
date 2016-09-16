@@ -1,0 +1,7 @@
+{{#each movies as |movie|}}
+    <div> {{movie.title}}</div>
+    Genre:
+    {{#each movie.genre as |genre|}}
+        {{genre}}
+    {{/each}}
+{{/each}}
