@@ -1,0 +1,75 @@
+@import "node_modules/compass-mixins/lib/compass";
+@import 'node_modules/compass-mixins/lib/compass/reset';
+@import 'node_modules/compass-mixins/lib/compass/css3';
+
+@import "bower_components/susy/sass/susy";
+
+$font_sans: 'Helvetica Neue', 'SC Sans', Helvetica, Arial, sans-serif;
+
+html ,
+body {
+  height: 100%;
+  font-family: $font_sans;
+}
+
+.header{
+  color:#66ccff;
+  text-align: center;
+  position: fixed;
+  right: 35%;
+}
+
+.genre{
+  display: inline-block;
+  border-radius: 5px;
+  margin: 5px 1px 5px 4px;
+  font-size: 10px;
+}
+.genre:active{
+  background:#00e673;
+}
+.genre:target{
+  background:#00e673;
+}
+.movie-snap{
+  width: 150px;
+  margin-left: 10px;
+  border-radius: 3px;
+  height:150px;
+}
+.movie-title,.movie-genre{
+  text-align:left;
+}
+.movie-title{
+  font-size: 14px;
+}
+.movie-genre{
+  font-size: 12px;
+}
+.movie-card{
+  width:90%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 3px;
+}
+.movie-trailer{
+  float: right;
+  margin-top: -120px;
+  margin-right: 10px;
+  font-size: 12px;
+}
+.youtube-img{
+  background-image: url("images/youtube-icon-png-red-square-24x24.png");
+  background-color: transparent;
+  width:24px;
+  height: 24px;
+  border: 0 none;
+}
+
+.genres{
+  position: relative;
+    top: 30px;
+}
+.movie-list{
+  margin: 20% auto;
+}
