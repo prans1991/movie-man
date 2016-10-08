@@ -12,6 +12,8 @@ export default DS.Model.extend({
 
    releaseYear: attr('number'),
 
-   genre: attr('array')
+   genre: attr('array'),
+
+   trailer: attr('string')
 
 });
