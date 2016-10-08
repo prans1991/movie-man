@@ -13,8 +13,9 @@ export default Ember.Component.extend({
     didReceiveAttrs(){
       this._super(...arguments);
       this.set('filteredMoviesByGenre',this.get('movies'));
+      this.set('selectedGenre','All');
     },
-    
+
     filterMoviesByGenre(genre){
        var movies = this.get('movies');
        var filteredMovies = Ember.A();
@@ -30,6 +31,7 @@ export default Ember.Component.extend({
     actions:{
       selectMovieGenre(genre){
         Ember.Logger.log("genre"+genre);
+        this.set('selectedGenre',genre);
         if(isEqual(genre,'All')){
           this.set('filteredMoviesByGenre',this.get('movies'));
         }else{
