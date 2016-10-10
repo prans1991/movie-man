@@ -1,0 +1,53 @@
+@mixin background-retina($file, $type, $width: false, $height: false, $important: false) {
+
+  $retinaRatios: (2, 3);
+
+  @if $width and $height {
+    background-size: $width $height;
+  } @else {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+
+
+  @if $important {
+    background-image: url($file + '.' + $type) !important;
+  } @else{
+    background-image: url($file + '.' + $type);
+  }
+
+  @each $ratio in $retinaRatios{
+    @media  only screen and (-webkit-min-device-pixel-ratio: $ratio),
+            only screen and (min--moz-device-pixel-ratio: $ratio),
+            only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),
+            only screen and (min-resolution: round($ratio * 96dpi)),
+            only screen and (min-resolution: $ratio * 1dppx) {
+              & {
+                background-image: url($file + '@2x.' + $type) !important;
+              }
+            }
+  }
+}
+
+/**
+ * Extends button hot zone by adding pseudo absolute
+ * @params
+ * $width: button width
+ * $height: button height
+ * $min-width: the minimum hot-zone-width-area
+ * $min-height: the minimum hot-zone-height-area
+ */
+@mixin extended-hot-zone($width, $height, $min-width: 50px , $min-height:50px, $debug:false){
+  &:after  {
+    content: "";
+    position: absolute;
+    min-width: $min-width;
+    min-height: $min-height;
+    left: ($width - $min-width) / 2;
+    top: ($height - $min-height) / 2;
+    @if($debug == true){
+      background-color: $debug-overlay-color;
+    }
+  }
+}

@@ -1,0 +1,189 @@
+$letterBox_height: 96px;
+
+.modal-video{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  & .modal---close-button{
+    top: -5px;
+    right: -5px;
+  }
+
+}
+
+
+
+.player{
+  padding-top: $letterBox_height;
+  height: 100%;
+}
+
+.player---viewer{
+  height: calc(100% - #{$letterBox_height});
+  font-size: 0;
+
+  &:before{
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 0;
+  }
+  & > video{
+    display: inline-block;
+    vertical-align: middle;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%!important;
+    width: 100%;
+  }
+}
+
+.player---fake-video{
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+
+}
+
+.player-controls {
+  margin-top: $basegrid;
+  height: 16px;
+  font-size: 0;
+
+  &:before{
+    height: 100%;
+    width: 0;
+    content:"";
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  & > *{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 15px;
+  }
+
+  & > button{
+
+    &.player-controls---backward .icon{
+      display: block;
+      width: 17px;
+      height: 11px;
+      @include background-retina('images/components/modal/icon-backward', 'png', 17px, 11px);
+    }
+
+    &.player-controls---forward .icon{
+      display: block;
+      width: 17px;
+      height: 11px;
+      @include background-retina('images/components/modal/icon-forward', 'png', 17px, 11px);
+    }
+
+    &.player-controls---play {
+      padding-left: 17px;
+      padding-right: 17px;
+
+      & .icon{
+        display: block;
+        width: 13px;
+        height: 16px;
+        @include background-retina('images/components/modal/icon-play', 'png', 13px, 16px);
+      }
+    }
+
+    &.player-controls---pause {
+      padding-left: 18px;
+      padding-right: 18px;
+
+      & .icon{
+        display: block;
+        width: 11px;
+        height: 16px;
+        @include background-retina('images/components/modal/icon-pause', 'png', 11px, 16px);
+      }
+    }
+
+    &[disabled]{
+      opacity: 0.3;
+    }
+  }
+}
+
+.player-timeline{
+  line-height: 9px;
+  width: calc(100% - (47px * 3));
+
+  .time{
+    font-family: $font_sans;
+    font-weight: 100;
+    font-size: 9px;
+    color: $light;
+    width: $basegrid;
+
+    -webkit-font-smoothing: antialiased;// corrects font aspect on dark backgorund & clear font
+  }
+
+  .player-timeline---current-time{
+    display: inline-block;
+  }
+  .player-progress{
+    display: inline-block;
+    width: calc(100% - (36px * 2));
+  }
+  .player-timeline---total-time{
+    display: inline-block;
+    text-align: right;
+  }
+}
+
+.player-progress{
+  height: 9px;
+  position: relative;
+
+  &:before{
+    height:2px;
+    width: 100%;
+    top: 3px;
+    position: absolute;
+    content: "";
+    background-color: rgba($light, 0.1);
+  }
+
+  & &---bar{
+    display: inline-block;
+    width: 0;
+    height: 2px;
+    margin-top: 3px;
+    vertical-align: top;
+
+
+    background: $complementary2;
+    background: -moz-linear-gradient(left, $complementary2 0%, #38d54a 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, $complementary2), color-stop(100%,#38d54a)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, $complementary2 0%,#38d54a 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to right, $complementary2 0%,#38d54a 100%); /* W3C */
+
+
+  }
+
+  & &---tick{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    height: 100%;
+    width: 1px;
+    background-color: $light;
+
+
+    @include extended-hot-zone(1px, 9px);
+  }
+
+}

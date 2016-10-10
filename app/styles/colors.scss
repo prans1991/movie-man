@@ -1,0 +1,10 @@
+
+$dark: black;
+$complementary1: #56b267; //ok green rgb(86, 178, 103)
+$complementary2: #7cd2fd; //pale blue rgb(124, 210, 253)
+$complementary3: #28282d; //dark blue rgb(40, 40, 45)
+$complementary4: #0b1521; //darker blue (11, 21, 33)
+$complementary5: #5cb8e6;
+$light: white;
+
+$overlay-darker: transparentize(darken($complementary4, 2.7), 0.01);

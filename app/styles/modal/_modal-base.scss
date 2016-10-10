@@ -1,0 +1,160 @@
+
+
+.modal---close-button {
+  $duration: 0.5s;
+
+  position: absolute;
+  z-index: 100;
+  top: -10px;
+  right: -10px;
+  overflow: hidden;
+  width: 72px;
+  height: 72px;
+  text-indent: 200%;
+  color: $light;
+  opacity: 0;
+
+  @include translate3d(0, 0, 0);
+
+  .scformsikon{
+    position: absolute;
+    left: 27px;
+    width: 17px;
+    top: 28px;
+    height: 17px;
+  }
+
+  .modal_is-open &{
+    opacity: 1;
+    @include transition( opacity $duration $animation-bezier $duration);
+  }
+
+}
+
+.modal{
+
+  $duration: 0.5s;
+
+  height: 100%;
+  width: 100%;
+
+  &::before{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    display: block;
+    content: '';
+    @include transition( opacity $duration $animation-bezier );
+  }
+
+  & > .modal---wrapper{
+    width: 100%;
+    height: 100%;
+    @include transition( all $duration $animation-bezier );
+  }
+
+  &_dark::before{
+    background-color: $overlay-darker;
+  }
+
+  &_translucent::before{
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  &_opaque::before{
+    background-color: lighten($dark, 9);
+  }
+
+  &_is-close,
+  &_is-closing,
+  &_is-opening{
+    &::before,
+    .modal---wrapper{
+      opacity: 0;
+    }
+  }
+  &_is-open{
+    &::before,
+    .modal---wrapper{
+      opacity: 1;
+    }
+  }
+
+
+  &_is-opening[class*='_scale-in']{
+    @include transition( opacity 0s $animation-bezier );
+
+    &::before{
+      @include transition( opacity 0s $animation-bezier );
+    }
+
+    > .modal---wrapper{
+      @include transform(scale(1.35) rotate(-0.01deg));
+      @include transition( transform 0s $animation-bezier );
+    }
+  }
+
+  &_is-open[class*='_scale-in']{
+
+    > .modal---wrapper{
+      @include transform(scale(1) rotate(-0.01deg));
+    }
+  }
+
+  &_is-closing[class*='_scale-out']{
+    &::before{
+      opacity: 0;
+    }
+
+    > .modal---wrapper{
+      @include transform(scale(.65) rotate(-0.01deg));
+    }
+  }
+
+  &_is-opening[class*='_fade-in']{
+    &::before, .modal---wrapper{
+      opacity: 0;
+    }
+  }
+
+  &_is-closing[class*='_fade-out']{
+    &::before, .modal---wrapper{
+      opacity: 0;
+    }
+  }
+
+  &_is-opening,
+  &_is-open{
+    &[class*='_none-in']{
+      &::before, .modal---wrapper{
+        @include transition( transform 0s $animation-bezier );
+      }
+    }
+  }
+
+  &_is-closing,
+  &_is-close{
+    &[class*='_none-out']{
+      &::before, .modal---wrapper{
+        @include transition( transform 0s $animation-bezier );
+      }
+    }
+  }
+
+  &_center{
+    .modal---wrapper{
+      font-size: 0;
+      @extend %v_wrapper;
+
+      > * {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+
+
+}
