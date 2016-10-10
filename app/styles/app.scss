@@ -2,9 +2,15 @@
 @import 'node_modules/compass-mixins/lib/compass/reset';
 @import 'node_modules/compass-mixins/lib/compass/css3';
 
+@import 'colors';
+@import '_layout';
+@import 'extendable';
+@import 'mixins';
+@import 'fonts';
 @import "bower_components/susy/sass/susy";
 
-$font_sans: 'Helvetica Neue', 'SC Sans', Helvetica, Arial, sans-serif;
+@import 'modal/modal-base';
+@import 'modal/modal-video';
 
 html ,
 body {
