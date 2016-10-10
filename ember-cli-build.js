@@ -9,6 +9,13 @@ module.exports = function(defaults) {
     }
   });
 
+  // PapaParse
+  app.import('bower_components/papaparse/papaparse.js');
+
+  // Swiper
+  app.import('bower_components/swiper/dist/css/swiper.min.css');
+  app.import('bower_components/swiper/dist/js/swiper.min.js');
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
