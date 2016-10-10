@@ -1,0 +1,43 @@
+<div id="modal-close" class="modal---close-button" {{action 'closeModalAction'}}>
+  <i class="icon-close"></i>
+</div>
+
+<div class="modal---wrapper">
+  <div class="player {{videoStateClass}}">
+
+    <div class="player---viewer">
+      <video autoplay>
+        <source id="mp4_src" src="{{videoSource}}" type="{{videoType}}" />
+      </video>
+    </div>
+
+    <div class="player-controls">
+
+      <button disabled={{scrobblingDisable}} class="player-controls---backward" {{action "backward"}}><i class="icon"></i></button>
+
+      {{#if (strict-eq videoState 'playing')}}
+        <button class="player-controls---pause" {{action "pause"}}><i class="icon"></i></button>
+      {{/if}}
+
+      {{#unless (strict-eq videoState 'playing')}}
+        <button disabled={{playDisable}} class="player-controls---play" {{action "play"}}><i class="icon"></i></button>
+      {{/unless}}
+
+      <button disabled={{scrobblingDisable}} class="player-controls---forward" {{action "forward"}}><i class="icon"></i></button>
+
+      <div class="player-timeline">
+        <span class="player-timeline---current-time time">{{currentTime}}</span>
+
+        <div class="player-progress">
+          <div class="player-progress---bar" style={{barWidth}}></div>
+          <div class="player-progress---tick" style={{tickPosition}}></div>
+        </div>
+
+        <span class="player-timeline---total-time time">{{totalTime}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{yield}}
