@@ -1,5 +1,12 @@
+<div class="genres">
 {{#each genres as |genre|}}
-   <button {{action "selectMovieGenre" genre}}class="genre">{{genre}}</button>
+   <button {{action "selectMovieGenre" genre}} class="genre">{{genre}}</button>
 {{/each}}
-
-{{movies-by-genre movies=filteredMoviesByGenre}}
+</div>
+<div class="movie-list">
+{{#each filteredMoviesByGenre as |movie|}}
+    {{movies-by-genre
+       movie=movie
+       selectedGenre=selectedGenre}}
+{{/each}}
+</div>
