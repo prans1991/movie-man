@@ -19,10 +19,14 @@ body {
 }
 
 .header{
-  color:#66ccff;
-  text-align: center;
-  position: fixed;
+  font-size: 20px;
   right: 35%;
+  text-align: center;
+  right: 35%;
+  font-weight: 00;
+  background: -webkit-linear-gradient(rgb(0, 183, 234) 0%, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .genre{
@@ -42,6 +46,7 @@ body {
   margin-left: 10px;
   border-radius: 3px;
   height:150px;
+  margin-top: 5px;
 }
 .movie-title,.movie-genre{
   text-align:left;
@@ -57,6 +62,7 @@ body {
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 3px;
+  border-radius: 5px;
 }
 .movie-trailer{
   float: right;
@@ -73,9 +79,110 @@ body {
 }
 
 .genres{
-  position: relative;
-    top: 30px;
+  top: 30px;
+  padding-left: 15px;
+  padding-right: 10px;
 }
 .movie-list{
-  margin: 20% auto;
+  margin: 65% auto 0;
+}
+
+.movie-home{
+  position: fixed;
+  top: 0;
+  background: #fff;
+  width: 100%;
+}
+
+.search-movies{
+  width: 90%;
+  margin-top: 5px;
+  border:1px solid #66ccff;
+  margin-left: 15px;
+  border-radius: 7px;
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 344px) {
+  .movie-list{
+    margin: 50% auto 0;
+  }
+}
+
+@media screen and (min-width: 420px) {
+  .movie-list{
+    margin: 40% auto 0;
+  }
+  .movie-trailer {
+    float: right;
+    margin-top: -120px;
+    margin-right: 50px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .movie-list{
+    margin: 35% auto 0;
+  }
+  .movie-trailer {
+    float: right;
+    margin-top: -120px;
+    margin-right: 100px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 526px) {
+  .movie-list{
+    margin: 27% auto 0;
+  }
+}
+
+@media screen and (min-width: 660px) {
+  .movie-list{
+    margin: 22% auto 0;
+  }
+  .movie-trailer {
+    float: right;
+    margin-top: -120px;
+    margin-right: 200px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 842px) {
+  .movie-list{
+    margin: 18% auto 0;
+  }
+  .movie-trailer {
+    float: right;
+    margin-top: -120px;
+    margin-right: 330px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .movie-list{
+    margin: 12% auto 0;
+  }
+  .movie-trailer {
+    float: right;
+    margin-top: -120px;
+    margin-right: 420px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 1146px) {
+  .movie-list{
+    margin: 10% auto 0;
+  }
+  .movie-trailer {
+    float: right;
+    margin-top: -120px;
+    margin-right: 550px;
+    font-size: 12px;
+  }
 }
