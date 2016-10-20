@@ -1,6 +1,18 @@
 export default {
   "data":[
     {
+        "id": 13,
+        "type": "movie",
+        "attributes":{
+          "title": "Ohm Shanthi Oshaana",
+          "image": "https://images-na.ssl-images-amazon.com/images/M/MV5BYjVjOTJlZGEtZmM0My00MjVmLTk2ZWMtMTAwOGRhZDk0NzhhXkEyXkFqcGdeQXVyMjM0ODk5MDU@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
+          "rating": 7.6,
+          "trailer": "https://www.youtube.com/watch?v=GaznvwVEED4",
+          "release-year": 2014,
+          "genre": ["Romance", "Comedy"]
+        }
+    },
+    {
         "id": 11,
         "type": "movie",
         "attributes":{
@@ -24,18 +36,7 @@ export default {
           "genre": ["Comedy", "Drama", "Romance"]
         }
     },
-    {
-        "id": 13,
-        "type": "movie",
-        "attributes":{
-          "title": "Ohm Shanthi Oshaana",
-          "image": "https://images-na.ssl-images-amazon.com/images/M/MV5BYjVjOTJlZGEtZmM0My00MjVmLTk2ZWMtMTAwOGRhZDk0NzhhXkEyXkFqcGdeQXVyMjM0ODk5MDU@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
-          "rating": 7.6,
-          "trailer": "https://www.youtube.com/watch?v=GaznvwVEED4",
-          "release-year": 2014,
-          "genre": ["Romance", "Comedy"]
-        }
-    },
+
     {
         "id": 14,
         "type": "movie",
