@@ -1,10 +1,18 @@
-<div class="genres">
-{{#each genres as |genre|}}
-   <button {{action "selectMovieGenre" genre}} class="genre">{{genre}}</button>
-{{/each}}
+<div class="movie-home">
+  <div class="header">Flickopedia</div>
+  <div class="genres">
+  {{#each genres as |genre|}}
+     <button {{action "selectMovieGenre" genre}} class="genre">{{genre}}</button>
+  {{/each}}
+  </div>
+  <div>
+    <input class="search-movies" type="text" placeholder="Click here! Say your flick !!" required on="key-up"/>
+  </div>
 </div>
+
+
 <div class="movie-list">
-{{#each filteredMoviesByGenre as |movie|}}
+{{#each filteredMovies as |movie|}}
     {{movies-by-genre
        movie=movie
        selectedGenre=selectedGenre}}

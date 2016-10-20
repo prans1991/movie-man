@@ -10,9 +10,11 @@ export default Ember.Component.extend({
 
     filteredMoviesByGenre: Ember.A(),
 
+    filteredMovies: Ember.A(),
+
     didReceiveAttrs(){
       this._super(...arguments);
-      this.set('filteredMoviesByGenre',this.get('movies'));
+      this.set('filteredMovies',this.get('movies'));
       this.set('selectedGenre','All');
     },
 
@@ -25,7 +27,27 @@ export default Ember.Component.extend({
             filteredMovies.push(movie);
           }
        });
-       this.set('filteredMoviesByGenre',filteredMovies);
+       this.set('filteredMovies',filteredMovies);
+    },
+
+    filterMoviesBySearch(searchText){
+       var movies = this.get('movies');
+       var filteredMovies = Ember.A();
+       movies.map((movie) =>{
+         var movieTitle = movie.get('title');
+         movieTitle = movieTitle.toLowerCase();
+         if(movieTitle.indexOf(searchText) !== -1){
+           filteredMovies.push(movie);
+         }
+       });
+       this.set('filteredMovies',filteredMovies);
+       Ember.Logger.log("filteredMovies length"+filteredMovies.get('length'));
+    },
+
+    keyUp:function(e){
+      var searchText = e.target.value;
+      searchText = searchText.toLowerCase();
+      this.filterMoviesBySearch(searchText);
     },
 
     actions:{
