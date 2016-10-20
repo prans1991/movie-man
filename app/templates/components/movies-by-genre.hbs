@@ -1,11 +1,11 @@
   <div class="w3-card-12 movie-card">
     <img class="movie-snap" src={{movie.image}}/>
     <div class="w3-container w3-center">
-        <div class="movie-title"> {{movie.title}}</div>
+        <div class="movie-title"> {{movie.title}} ({{movie.releaseYear}})</div>
         {{movie-genre genres=movie.genre selectedGenre=selectedGenre}}
     </div>
     <div class="movie-trailer" {{action "displayTrailer" movie.trailer}}>
       <img class="youtube-img"/>
-      <a href="#">  Watch trailer </a>
+      <a href="#">Watch trailer</a>
     </div>
   </div>
