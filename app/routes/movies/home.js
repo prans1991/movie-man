@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import BaseRoute from 'movie-man/routes/base';
 
-export default Ember.Route.extend({
+export default BaseRoute.extend({
 
   model: function(){
     return this.store.findAll('movie');
