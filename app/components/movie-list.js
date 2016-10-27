@@ -46,8 +46,11 @@ export default Ember.Component.extend({
 
     keyUp:function(e){
       var searchText = e.target.value;
-      searchText = searchText.toLowerCase();
-      this.filterMoviesBySearch(searchText);
+      searchText = searchText.trim();
+      if(searchText.length > 0){
+        searchText = searchText.toLowerCase();
+        this.filterMoviesBySearch(searchText);
+      }
     },
 
     actions:{
@@ -55,7 +58,7 @@ export default Ember.Component.extend({
         Ember.Logger.log("genre"+genre);
         this.set('selectedGenre',genre);
         if(isEqual(genre,'All')){
-          this.set('filteredMoviesByGenre',this.get('movies'));
+          this.set('filteredMovies',this.get('movies'));
         }else{
           this.filterMoviesByGenre(genre);
         }
